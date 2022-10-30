@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="RunContactsConfig" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.methodindustries.contacts.ContactsApplication" />
+    <module name="contacts" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
