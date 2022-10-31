@@ -19,6 +19,25 @@ public class ContactService {
     public Contact create(Contact c){
         return contactRepository.save(c);
     }
+    public Contact update(Contact c, ContactDTO dto){
+        if(dto.getFirstName() != null){
+            c.setFirstName(dto.getFirstName());
+        }
+        if(dto.getLastName() != null){
+            c.setLastName(dto.getLastName());
+        }
+        if(dto.getStartDate() != null){
+            c.setStartDate(dto.getStartDate());
+        }
+        if(dto.getGender() != null){
+            c.setGender(dto.getGender());
+        }
+        return contactRepository.save(c);
+    }
+
+    public void delete(Long id){
+        contactRepository.deleteById(id);
+    }
     public Contact mapper(ContactDTO dto){
         Contact c = new Contact();
         c.setFirstName(dto.getFirstName());

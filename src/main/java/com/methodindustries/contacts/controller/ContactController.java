@@ -23,8 +23,19 @@ public class ContactController {
     public  Contact create(@RequestBody ContactDTO contactDTO){
        Contact c = contactService.mapper(contactDTO);
        Contact contact = contactService.create(c);
-       return c;
+       return contact;
 
+    }
+    @RequestMapping(method = RequestMethod.PUT, value = "/contact/{id}", consumes ="application/json")
+    public Contact update(@PathVariable Long id, @RequestBody ContactDTO contactDTO){
+        Contact c = contactService.getContact(id);
+        Contact contact = contactService.update(c, contactDTO);
+        return contact;
+    }
+    @RequestMapping(method= RequestMethod.DELETE, value = "/contact/{id}")
+    public String deleteContact(@PathVariable Long id){
+        contactService.delete(id);
+        return "Contact Delete";
     }
 
 }
